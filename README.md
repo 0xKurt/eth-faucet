@@ -15,6 +15,7 @@ Visit at [https://ethily.io/rinkeby-faucet](https://ethily.io/rinkeby-faucet)
 ## config
 
 ### .env vars
+```
 REACT_APP_INFURA='<INFURA API KEY>'
 REACT_APP_NETWORK=4 
 REACT_APP_RPC='<RPC URL>'
@@ -22,6 +23,7 @@ REACT_APP_BLOCKEXPLORER_URL='https://rinkeby.etherscan.io'
 REACT_APP_BLOCKEXPLORER_NAME='etherscan'
 REACT_APP_BICONOMY_KEY='<BICONOMY API KEY>'
 REACT_APP_CONTRACT='<CONTRACT ADDRESS>'
+```
 
 ### OR in App.js:8-18
 
@@ -36,7 +38,7 @@ REACT_APP_CONTRACT='<CONTRACT ADDRESS>'
     },
     biconomy: 'true',
     biconomy_key: '<BICONOMY API KEY>',
-    contract: <CONTRACT ADDRESS>
+    contract: '<CONTRACT ADDRESS>'
   }
 ```
 
