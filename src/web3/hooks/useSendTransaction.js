@@ -100,27 +100,30 @@ const useSendTransaction = () => {
     e.emit('transactionHash', hash);
     let receipt = null;
     let counter = 0;
-
+    console.log('Hash:')
+    console.log(hash)
+    console.log('receipt')
     while ((receipt = await web3.eth.getTransactionReceipt(hash)) === null) { // wait for receipt
-      await wait(25).then(() => {
+      await wait(10).then(() => {
         if (counter++ > 100) {
           e.emit('error', 'no receipt')
           return;
         }
       })
     }
-
+    console.log(receipt)
     e.emit('receipt', receipt);
 
     let block = receipt.blockNumber;
     let confirmedBlock = block + (txData.confirmations ? txData.confirmations : 4)
     let latestBlock = block;
-
+    console.log('confirmation')
     while (latestBlock <= confirmedBlock) { // wait for confirmations
       await wait(15).then(async () => {
         let fullBlock = await web3.eth.getBlock("latest")
         latestBlock = fullBlock.number;
       })
+      console.log(latestBlock - block+'/'+confirmedBlock-block)
     }
 
     await web3.eth.clearSubscriptions()

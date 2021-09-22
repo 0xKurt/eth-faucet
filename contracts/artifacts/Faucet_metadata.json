@@ -84,9 +84,9 @@
 				"name": "alreadyUsed",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -210,10 +210,10 @@
 	},
 	"sources": {
 		"eth-faucet/contracts/Faucet.sol": {
-			"keccak256": "0xbaf234122cd7214c05105fac0a108e7328d44d269b8f6549b1f870cf7ccbdadf",
+			"keccak256": "0x240e34ca9633ab3258c1acb9eabe6524f445ad673689bc1c5b76d98b85f5e8f3",
 			"urls": [
-				"bzz-raw://582cd3bd23e2f833f635a7084bbed74d37039cfcf0459fd08626a14e7817c4b4",
-				"dweb:/ipfs/Qmd7eWgivfSHm4bT2UEbf59LAZPnSqNBp9dDD6LscAUa4h"
+				"bzz-raw://d2e5622810804e3645222224883e43b1c8bb984da6896a2259c0ab9f491d14b2",
+				"dweb:/ipfs/QmRyuv5yL5UL8Wdze4hijtKRS3L59A61UoEVW4bHZeKx8t"
 			]
 		}
 	},

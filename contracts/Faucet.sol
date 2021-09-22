@@ -177,7 +177,7 @@ contract EIP712MetaTransaction is EIP712Base {
 
 contract Faucet is EIP712MetaTransaction("EthFaucet","1") {
     address public owner;
-    mapping(address => bool) public alreadyUsed;
+    mapping(address => uint256) public alreadyUsed;
     
     event Received(address, uint);
     event Send(address, uint);
@@ -193,12 +193,12 @@ contract Faucet is EIP712MetaTransaction("EthFaucet","1") {
     }
     
     modifier hasNotUsedFaucet {
-        require(!alreadyUsed[msgSender()], 'only once per address');
+        require(block.timestamp - 7 days >= alreadyUsed[msgSender()], 'just once a week');
         _;
     }
     
     modifier isNotGreedy {
-        require(msgSender().balance < 0.2 ether, 'do not be greedy');
+        require(msgSender().balance < 0.4 ether, 'do not be greedy');
         _;
     }
     
@@ -207,7 +207,7 @@ contract Faucet is EIP712MetaTransaction("EthFaucet","1") {
     }
     
     function sendEther() public hasEnoughBalance hasNotUsedFaucet isNotGreedy {
-        alreadyUsed[msgSender()] = true;
+        alreadyUsed[msgSender()] = block.timestamp;
         payable(msgSender()).transfer(0.2 ether);
         emit Send(msgSender(), 0.2 ether);
     }
